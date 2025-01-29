@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Facts</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      padding: 20px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    #fact-container {
+      font-size: 1.2rem;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 400;
+      transition: all 0.3s ease;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      background: #ff6b6b;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+    }
+
+    button:hover {
+      background: #ff4f4f;
+      transform: scale(1.05);
+    }
+
+    button:active {
+      background: #e63e3e;
+      transform: scale(0.95);
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      #fact-container {
+        font-size: 1rem;
+      }
+
+      button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Google Facts</h1>
+    <div id="fact-container">
+      <p id="fact">Press the button to display a fact about Google.</p>
+    </div>
+    <button id="next-fact-button">Show Fact</button>
+  </div>
+  
+  <script>
+    const facts = [
+      "Google was founded on September 4, 1998, by Larry Page and Sergey Brin.",
+      "The company's original name was 'BackRub,' which was later changed to 'Google.'",
+      "Google's name is derived from the mathematical term 'googol,' meaning 10 to the power of 100.",
+      "The first Google Doodle was created in 1998 as a message to users that the founders were attending the Burning Man festival.",
+      "Google’s parent company, Alphabet Inc., was created in 2015 as part of a corporate restructuring.",
+      "The company headquarters, known as the Googleplex, is located in Mountain View, California.",
+      "Google is the most visited website in the world, with over 90% of the search engine market share.",
+      "Google has acquired over 200 companies, including YouTube in 2006 and Android in 2005.",
+      "The first Google server was built using LEGO bricks to hold the 10 GB hard drive.",
+      "Google employees are known as 'Googlers,' and new employees are called 'Nooglers.'"
+    ];
+
+    let currentFactIndex = 0;
+
+    const factElement = document.getElementById("fact");
+    const button = document.getElementById("next-fact-button");
+
+    button.addEventListener("click", () => {
+      factElement.textContent = facts[currentFactIndex];
+      currentFactIndex = (currentFactIndex + 1) % facts.length;
+    });
+  </script>
+</body>
+</html>
